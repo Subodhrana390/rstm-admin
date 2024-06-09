@@ -18,7 +18,15 @@ cloudinary.config({
 
 const app = express();
 app.use(express.json());
+<<<<<<< HEAD
 app.use(cors());
+=======
+app.use(cors({origin: '*' }));
+
+app.get("/authorized", function (req, res) {
+  res.send("Secured Resource");
+});
+>>>>>>> 3edaf3b35e2c464036d66559138e7de1f8e929f2
 
 app.use("/api/my/user", myUserRoute);
 app.use("/api/my/project", myProjectRoute);
