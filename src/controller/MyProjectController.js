@@ -60,7 +60,7 @@ const getProjectById = async (req, res) => {
   try {
     const projectId = req.params.id;
 
-    const project = await Restaurant.findById({ _id: projectId });
+    const project = await Project.findById({ _id: projectId });
 
     if (!project) {
       return res.status(404).json({ message: "project not found" });
