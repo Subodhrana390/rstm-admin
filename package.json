@@ -161,7 +161,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "build":"npm install"
   },
   "author": "",
   "license": "ISC"
