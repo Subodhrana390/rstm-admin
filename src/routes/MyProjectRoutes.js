@@ -32,5 +32,6 @@ router.put(
   jwtParse,
   MyProjectController.updateMyProject
 );
+router.delete("/", jwtCheck, jwtParse, MyProjectController.deleteProjectById);
 
 export default router;

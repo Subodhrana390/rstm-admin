@@ -72,6 +72,24 @@ const getProjectById = async (req, res) => {
     res.status(500).json({ message: "Something get Wrong" });
   }
 };
+const deleteProjectById = async (req, res) => {
+  try {
+    const projectId = req.query.id;
+    const project = await Project.findByIdAndDelete({
+      _id: projectId,
+      user: req.userId,
+    });
+
+    if (!project) {
+      return res.status(404).json({ message: "project not found" });
+    }
+
+    res.json({ message: "project deleted" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Something get Wrong" });
+  }
+};
 
 const updateMyProject = async (req, res) => {
   try {
@@ -119,4 +137,5 @@ export default {
   getProjectByUser,
   updateMyProject,
   getProjectById,
+  deleteProjectById,
 };
